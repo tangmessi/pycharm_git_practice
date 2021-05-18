@@ -9,7 +9,6 @@ print(a2)"""  # 访问网站
 '''url_weibo = 'https://weibo.com/aj/like/status?ajwvr=6&object_ids=1042018%3A85cfc90564066d465d68669b97cc5094%2C1042018' \
             '%3Af588638ba9d0c45151a22ce44e115305&_t=0&__rnd=1619897351543 '
 url_cat = "http://placekitten.com/g/600/600"
-url_91 = "http://www.91porn.com"
 url_music = 'http://music.163.com/song/media/outer/url?id=436514312.mp3'
 response = url_r.urlopen(url_music)
 cat_imge = response.read()
@@ -59,12 +58,10 @@ tkinter.Tk
 translation()'''  # 爬有道翻译
 
 url = 'http://45.32.164.128/ip.php'
-iplist = ['123.253.36.99:8080'] #'114.233.171.250:8009','49.85.188.222:8017', '36.56.101.120:9999']
-proxy_support = url_r.ProxyHandler({'http':'123.253.36.99:8080'})#random.choice(iplist)})
+proxy_support = url_r.ProxyHandler({'http':'58.253.155.215:9999'})
 opener = url_r.build_opener(proxy_support)
-opener.addheaders = [('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
-                                    '(KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 Edg/90.0.818.51')]
-url_r.install_opener(opener)
+opener.addheaders = [('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
+                                    'Chrome/90.0.4430.212 Safari/537.36 Edg/90.0.818.62')]
 response = url_r.urlopen(url)
 html1 = response.read().decode('utf_8')
 # html = json.loads(html1)
