@@ -4,19 +4,19 @@ import easygui as g
 import docx as d
 from docx import Document
 
-
 title1 = '小唐制作'
-#path =g.enterbox('输入你工作文件夹的存放路径（请直接去文件管理器复制）',title= title1) #r"C:\Users\Administrator\Desktop"  # 工作文件夹存放路径
+# path =g.enterbox('输入你工作文件夹的存放路径（请直接去文件管理器复制）',title= title1) #r"C:\Users\Administrator\Desktop"  # 工作文件夹存放路径
 path = 'E:\唐国毅\专利撰写\ing'
 filename1 = '一种WHAT'  # 你的模板名称，全部一致
 '''filename2 =g.enterbox('输入你分配的案件名称',title= title1)  # 分配的案件名称
 user_choice = g.choicebox(msg = '确定运行？',title =title1 ,choices=('yes','no'))'''
 
+
 def rename():
     filename2 = g.enterbox('输入你分配的案件名称', title=title1)  # 分配的案件名称
     user_choice = g.choicebox(msg='确定运行重命名文件？', title=title1, choices=('yes', 'no'))
     if user_choice == 'no':
-        g.msgbox(msg = '按任意键退出',title =title1)
+        g.msgbox(msg='按任意键退出', title=title1)
         sys.exit(0)
     elif user_choice == 'yes':
 
@@ -45,19 +45,24 @@ def rename():
         g.msgbox(msg='运行完成', title=title1)
         return filename2
 
+
 def replace_docx(docx_name):
-    docx_file = Document('E:\\唐国毅\\专利撰写\\ing\\'+docx_name+'\\'+docx_name+'——申请文本.docx')  # 读取文件
+    docx_file = Document('E:\\唐国毅\\专利撰写\\ing\\' + docx_name + '\\' + docx_name + '——申请文本.docx')  # 读取文件
     for docx_text in docx_file.paragraphs:
         for run in docx_text.runs:  # 扫描word里面的文字
-            if "WHAT" in run.text:
-                run.text = run.text.replace('WHAT', docx_name)  # 替换文字
-        print(docx_text.text)
-        docx_file.save('C:\\Users\\Administrator\\Desktop\\'+docx_name+'.docx')
+            if "WHAT" in run.text:#替换文字
+                if docx_name[:2] == '一种':
+                    run.text = run.text.replace('WHAT', docx_name[2:])  # 如果存在一种，则提取一种后面的文字
+                else:
+                    run.text = run.text.replace('WHAT', docx_name)  # 替换文字
+        #print(docx_text.text)
+        docx_file.save('E:\\唐国毅\\专利撰写\\ing\\' + docx_name + '\\' + docx_name + '——申请文本.docx')
+
 
 if __name__ == "__main__":
     docx_name = rename()
     replace_choice = g.choicebox(msg='确定运行替代word模板里的案件名字？', title=title1, choices=('yes', 'no'))
-    if replace_choice =='yes':
+    if replace_choice == 'yes':
         replace_docx(docx_name)
         g.msgbox(msg='运行完成', title=title1)
     else:
