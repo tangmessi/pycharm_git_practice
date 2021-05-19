@@ -1,2 +1,2 @@
-python practice
-这是一个CS小白练习puthon的过程文件
+﻿python practice
+这是一个CS小白练习python的过程文件
