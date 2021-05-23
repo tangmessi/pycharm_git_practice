@@ -27,5 +27,5 @@ def get_image(html):
 
 if __name__ == '__main__':
     url = 'https://tieba.baidu.com/p/6131348235'
-    html = open_url(url1)
+    html = open_url(url)
     get_image(html)
