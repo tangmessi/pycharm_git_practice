@@ -3,8 +3,8 @@ from docx import Document
 docx_file = Document(r'C:\Users\Administrator\Desktop\1.docx')#读取文件
 for docx_text in docx_file.paragraphs:
     for run in docx_text.runs:#扫描word里面的文字
-        if "唐国毅" in run.text:
-            run.text = run.text.replace('唐国毅', 'WHAT')#替换文字
+        if "WHAT" in run.text:
+            run.text = run.text.replace('WHAT', '666')#替换文字
     print (docx_text.text)
     docx_file.save(r'C:\Users\Administrator\Desktop\1.docx')
 
