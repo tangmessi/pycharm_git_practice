@@ -9,7 +9,7 @@ filename1 = '一种WHAT'  # 你的模板名称，全部一致
 
 
 def copy_file():  # 复制模板文件夹
-    source_path = os.path.abspath(r'C:\Users\Administrator\Desktop\一种WHAT')
+    source_path = os.path.abspath(r'E:\唐国毅\专利撰写\一种WHAT')
     target_path = os.path.abspath(r'E:\唐国毅\专利撰写\ing\一种WHAT')
 
     '''if not os.path.exists(target_path):
@@ -63,8 +63,8 @@ def rename(path):  # 文件以及文件夹重命名
         os.rename(path2 + '\\' + '图' + '\\' + filename1 + '.DWG', path2 + '\\' + '图' + '\\' + '模板' + filename2 + '.DWG')
         # 重命名模板DWG文件，用于区分文件
 
-        os.rename(path2 + '\\' + filename1 + '——申请文本.docx',
-                  path2 + '\\' + filename2 + '——申请文本.docx')  # 重命名模板主文件夹里的初始word文件
+        os.rename(path2 + '\\' + filename1 + '——申请文件.docx',
+                  path2 + '\\' + filename2 + '——申请文件.docx')  # 重命名模板主文件夹里的初始word文件
         g.msgbox(msg='运行完成', title=title1)
         return filename2
 
@@ -91,8 +91,8 @@ def rename_self(path):
     os.rename(path2 + '\\' + '图' + '\\' + filename1 + '.DWG', path2 + '\\' + '图' + '\\' + '模板' + filename2 + '.DWG')
     # 重命名模板DWG文件，用于区分文件
 
-    os.rename(path2 + '\\' + filename1 + '——申请文本.docx',
-              path2 + '\\' + filename2 + '——申请文本.docx')  # 重命名模板主文件夹里的初始word文件
+    os.rename(path2 + '\\' + filename1 + '——申请文件.docx',
+              path2 + '\\' + filename2 + '——申请文件.docx')  # 重命名模板主文件夹里的初始word文件
     #g.msgbox(msg='运行完成', title=title1)
     return filename2
 
@@ -101,7 +101,7 @@ def replace_docx(docx_name):  # 替换word里的文字
     replace_choice = g.choicebox(msg='确定运行替代word模板里的案件名字？', title=title1, choices=('yes', 'no'))
     # 用户确认
     if replace_choice == 'yes':  # 执行修改word
-        docx_file = Document('E:\\唐国毅\\专利撰写\\ing\\' + docx_name + '\\' + docx_name + '——申请文本.docx')  # 读取文件
+        docx_file = Document('E:\\唐国毅\\专利撰写\\ing\\' + docx_name + '\\' + docx_name + '——申请文件.docx')  # 读取文件
         for docx_text in docx_file.paragraphs:
             for run in docx_text.runs:  # 扫描word里面的文字
                 if "WHAT" in run.text:  # 替换文字
@@ -110,14 +110,14 @@ def replace_docx(docx_name):  # 替换word里的文字
                     else:
                         run.text = run.text.replace('WHAT', docx_name)  # 替换文字
             # print(docx_text.text)
-            docx_file.save('E:\\唐国毅\\专利撰写\\ing\\' + docx_name + '\\' + docx_name + '——申请文本.docx')
+            docx_file.save('E:\\唐国毅\\专利撰写\\ing\\' + docx_name + '\\' + docx_name + '——申请文件.docx')
         g.msgbox(msg='运行完成', title=title1)
     else:
         sys.exit(0)
 
 
 def replace_docx_self(docx_name):
-    docx_file = Document('E:\\唐国毅\\专利撰写\\ing\\' + docx_name + '\\' + docx_name + '——申请文本.docx')  # 读取文件
+    docx_file = Document('E:\\唐国毅\\专利撰写\\ing\\' + docx_name + '\\' + docx_name + '——申请文件.docx')  # 读取文件
     for docx_text in docx_file.paragraphs:
         for run in docx_text.runs:  # 扫描word里面的文字
             if "WHAT" in run.text:  # 替换文字
@@ -126,7 +126,7 @@ def replace_docx_self(docx_name):
                 else:
                     run.text = run.text.replace('WHAT', docx_name)  # 替换文字
         # print(docx_text.text)
-        docx_file.save('E:\\唐国毅\\专利撰写\\ing\\' + docx_name + '\\' + docx_name + '——申请文本.docx')
+        docx_file.save('E:\\唐国毅\\专利撰写\\ing\\' + docx_name + '\\' + docx_name + '——申请文件.docx')
     g.msgbox(msg='运行完成', title=title1)
 
 
