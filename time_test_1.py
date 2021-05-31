@@ -15,5 +15,7 @@ print(now_time)
 print(birth_time_str)
 print(now_time_str)#测试代码
 '''
+print(tm.perf_counter())  # 返回系统运行时间
+print(tm.process_time() )
 print ("您已经%f岁了" % time_year)
 print ("您已经在这世界上呼吸了%d天的空气了" % time_day)
