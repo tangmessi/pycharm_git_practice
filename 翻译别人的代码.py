@@ -1,5 +1,6 @@
-#!/usr/bin/env python
+'''#!/usr/bin/env python
 # -*- coding:utf-8 -*-
+'''
 import requests
 from tkinter import Tk, Button, Entry, Label, Text, END
 
